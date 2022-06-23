@@ -1,12 +1,18 @@
-# Indent + PagerDuty Integration
+# Indent + AWS Lambda and PagerDuty
 
-This repository contains one webhook (AWS Lambda) to enable auto approvals for on-call rotation participants from Pagerduty using [Indent](https://indent.com/docs).
+This repository contains an integration between PagerDuty and [Indent](https://indent.com). Once deployed, you will be able to use this integration with Indent to:
+
+- GetDecision
 
 ## Quicklinks
 
+- [Indent Documentation](https://indent.com/docs)
 - [Indent Support](https://support.indent.com)
+
+**In this repo**
+
 - [GitHub Secrets](./settings/secrets/actions)
-- [GitHub Actions](./actions/workflows/terraform.yml)
+- [GitHub Actions](./actions/workflows/deploy.yaml)
 
 ## Configuration
 
@@ -39,7 +45,7 @@ Before you deploy these webhooks for the first time, [create an S3 bucket](https
 
 <details><summary><strong>3. Connecting to PagerDuty</strong></summary>
 
-- [Go to PagerDuty > Integrations > API Access Keys](https://support.pagerduty.com/docs/api-access-keys#section-generate-a-general-access-rest-api-key) and create a new API key, then give the ke a descriptive name like `Indent Auto Approvals`
+- [Go to PagerDuty > Integrations > API Access Keys](https://support.pagerduty.com/docs/api-access-keys#section-generate-a-general-access-rest-api-key) and create a new API key, then give the key a descriptive name like Indent Auto Approvals
 - Add this as `PAGERDUTY_KEY` as a GitHub Secret
 
 </details>
@@ -60,22 +66,8 @@ Before you deploy these webhooks for the first time, [create an S3 bucket](https
 
 ### Actions secrets
 
-Add the credentials for one of the authentication options below to your GitHub Secrets.
-
-<details open><summary>Configuring secrets / environment variables</summary>
-<p>
-
-| Name                  | Value                                                                                                                                                                                                                                                                |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INDENT_WEBHOOK_SECRET | Get this from your [Indent App](https://indent.com/spaces?next=/manage/spaces/%5Bspace%5D/apps) or an [Indent Webhook](https://indent.com/spaces?next=/manage/spaces/%5Bspace%5D/webhooks) in the Dashboard                                                          |
-| PAGERDUTY_KEY         | Create an [API access key](https://support.pagerduty.com/docs/api-access-keys#section-generate-a-general-access-rest-api-key) for programatically getting on-call schedule participants.                                                                             |
-| AWS_ACCESS_KEY_ID     | [Your Programmatic AWS Access Key ID](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)                                                                                                                      |
-| AWS_SECRET_ACCESS_KEY | [Your Programmatic AWS Secret Access Key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)                                                                                                                  |
-| AWS_SESSION_TOKEN     | Optional: [Your AWS Session Token](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html#using-temp-creds-sdk-cli). **Note: If you use an AWS Session ID you will need to update it for each deployment once the session expires** |
-
-</p>
-</details>
+Visit <a href="https://indent.com/docs/webhooks/deploy/pagerduty#actions-secrets" target="_blank">this link</a> to our documentation for information on setting up GitHub Secrets in this repository.
 
 ## Deployment
 
-This repository auto-deploys to AWS when you push or merge PRs to the `main` branch. You can manually redeploy the webhooks by re-running the [latest GitHub Action job](https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs).
+This repository auto-deploys to AWS Lambda when you push or merge PRs to the `main` branch. You can manually redeploy the webhooks by re-running the [latest GitHub Action job](https://docs.github.com/en/actions/managing-workflow-runs/re-running-workflows-and-jobs).

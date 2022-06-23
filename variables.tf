@@ -11,12 +11,11 @@ variable "aws_profile" {
 variable "indent_webhook_secret" {
   type      = string
   sensitive = true
-  default   = ""
 }
 
 variable "pagerduty_key" {
   type      = string
-  sensitive = true
   default   = ""
+  sensitive = true
 }
 
