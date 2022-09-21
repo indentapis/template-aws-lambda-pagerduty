@@ -19,3 +19,9 @@ variable "pagerduty_key" {
   sensitive = true
 }
 
+variable "auto_approval_pagerduty_schedules" {
+  type      = string
+  default   = ""
+  sensitive = true
+}
+
