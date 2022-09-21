@@ -6,13 +6,8 @@ This repository contains an integration between PagerDuty and [Indent](https://i
 
 ## Quicklinks
 
-- [Indent Documentation](https://indent.com/docs)
+- [Indent Documentation Index](https://indent.com/docs)
 - [Indent Support](https://support.indent.com)
-
-**In this repo**
-
-- [GitHub Secrets](./settings/secrets/actions)
-- [GitHub Actions](./actions/workflows/deploy.yaml)
 
 ## Configuration
 
@@ -47,6 +42,7 @@ Before you deploy these webhooks for the first time, [create an S3 bucket](https
 
 - [Go to PagerDuty > Integrations > API Access Keys](https://support.pagerduty.com/docs/api-access-keys#section-generate-a-general-access-rest-api-key) and create a new API key, then give the key a descriptive name like Indent Auto Approvals
 - Add this as `PAGERDUTY_KEY` as a GitHub Secret
+- Optional: select which on-call schedules get auto-approval by setting `AUTO_APPROVAL_PAGERDUTY_SCHEDULES` as a GitHub Secret
 
 </details>
 
