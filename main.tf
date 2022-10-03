@@ -10,8 +10,8 @@ terraform {
 
 # Indent + PagerDuty Integration
 
-# Details: https://github.com/indentapis/integrations/tree/fc629d5c057133dd97e04244485774a57fd10b71/packages/stable/indent-integration-pagerduty
-# Last Change: https://github.com/indentapis/integrations/commit/fc629d5c057133dd97e04244485774a57fd10b71
+# Details: https://github.com/indentapis/integrations/tree/f0cea0e363f8950c7a217d186df6c377ed52e9d7/packages/stable/indent-integration-pagerduty
+# Last Change: https://github.com/indentapis/integrations/commit/f0cea0e363f8950c7a217d186df6c377ed52e9d7
 
 module "idt-pagerduty-webhook" {
   source                = "git::https://github.com/indentapis/integrations//terraform/modules/indent_runtime_aws_lambda"
@@ -19,8 +19,8 @@ module "idt-pagerduty-webhook" {
   indent_webhook_secret = var.indent_webhook_secret
   artifact = {
     bucket       = "indent-artifacts-us-west-2"
-    function_key = "webhooks/aws/lambda/pagerduty-fc629d5c057133dd97e04244485774a57fd10b71-function.zip"
-    deps_key     = "webhooks/aws/lambda/pagerduty-fc629d5c057133dd97e04244485774a57fd10b71-deps.zip"
+    function_key = "webhooks/aws/lambda/pagerduty-f0cea0e363f8950c7a217d186df6c377ed52e9d7-function.zip"
+    deps_key     = "webhooks/aws/lambda/pagerduty-f0cea0e363f8950c7a217d186df6c377ed52e9d7-deps.zip"
   }
   env = {
     PAGERDUTY_KEY                     = var.pagerduty_key
